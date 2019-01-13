@@ -1,21 +1,11 @@
 
 var Paging = {
-    // 在init里面把所有全局变量定义好,这些变量要在对象的其他方法中使用
-    // 在init里调用本对象的其他方法
     init: function(){
-        // this.$tabs这种起名方式有两点好处：
-        //1.不会重名，因为每个对象中this代表的不同，
-        //所以即使命名$tab在别的对象上使用，也不会重名
-        //2.$tab中加$能一目了然是juqery对象
         this.$tabs = $('footer>div')
         this.$pages = $('main>section')
         this.bind()
     },
-    //bind方法的作用是绑定各种事件
     bind: function(){
-        //此时this还是paging对象。
-        //但是在方法内的其他函数中，this可能另有所指。
-        //所以一开始就将this所指的对象保存在方法作用域下，命名_this
         var _this = this
         this.$tabs.on('click',function(){
             var $this = $(this)
